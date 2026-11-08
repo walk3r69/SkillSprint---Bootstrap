@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Painel de aprendizagem SkillSprint desenvolvido com Tailwind CSS." />
+    <title>SkillSprint | Atividade Tailwind</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600;1,700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { paper: '#f7f5ef', 'paper-deep': '#eeece3', ink: '#123e33', muted: '#6f7772', coral: '#f47a65', sand: '#e8d9bd' },
+            fontFamily: { sans: ['DM Sans', 'sans-serif'], display: ['Playfair Display', 'Georgia', 'serif'] },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-paper font-sans text-ink">
+    <header class="sticky top-0 z-50 border-b border-ink/10 bg-paper/95 backdrop-blur">
+      <nav aria-label="Navegação principal" class="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-5 py-4 lg:px-8">
+        <a href="#inicio" class="flex items-center gap-2 font-bold tracking-tight" aria-label="SkillSprint, voltar ao início"><span class="brand-mark">S</span><span>Skill<span class="text-coral">Sprint</span></span></a>
+        <button id="menuButton" type="button" class="rounded-lg p-2 text-ink lg:hidden" aria-controls="mainMenu" aria-expanded="false" aria-label="Abrir menu de navegação"><span class="text-2xl">☰</span></button>
+        <div id="mainMenu" class="hidden w-full lg:flex lg:w-auto lg:items-center lg:gap-10">
+          <ul class="mt-4 flex flex-col gap-3 text-sm font-semibold text-muted lg:mt-0 lg:flex-row lg:gap-7">
+            <li><a class="nav-link active" href="#inicio">Início</a></li><li><a class="nav-link" href="#trilhas">Trilhas</a></li><li><a class="nav-link" href="#agenda">Agenda</a></li><li><a class="nav-link" href="#contato">Contato</a></li>
+          </ul>
+          <div class="mt-4 flex items-center gap-2 lg:mt-0"><span class="avatar">JH</span><span class="profile-name text-sm font-bold">Jorlan Heider</span></div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-32" aria-labelledby="hero-title">
+        <div class="grid items-center gap-12 lg:grid-cols-[1.25fr_.75fr]">
+          <div><p class="eyebrow mb-3">PAINEL DE APRENDIZAGEM</p><h1 id="hero-title" class="display-title">Pequenos passos.<br /><em>Grandes entregas.</em></h1><p class="mt-6 max-w-xl leading-7 text-muted">Uma experiência de estudo para transformar conhecimento em projetos que as pessoas realmente gostam de usar.</p><a class="mt-7 inline-flex rounded-lg bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-coral" href="#trilhas">Explorar trilhas <span class="ml-3">↗</span></a></div>
+          <div class="hero-card rounded-2xl bg-ink p-8 text-white lg:min-h-80"><span class="mb-8 block h-1 w-8 bg-coral"></span><p class="eyebrow mb-3">TRILHA EM DESTAQUE</p><h2 class="relative z-10 text-4xl font-bold leading-none tracking-tight sm:text-5xl">Interfaces que<br />comunicam.</h2><p class="relative z-10 mt-6 max-w-xs leading-7 text-white/70">Aprenda a construir experiências claras, responsivas e acessíveis.</p><button id="openModal" type="button" class="relative z-10 mt-5 rounded-lg bg-white px-4 py-3 text-sm font-bold text-ink hover:bg-coral hover:text-white">Conhecer a trilha <span class="ml-3">↗</span></button></div>
+        </div>
+      </section>
+
+      <section id="trilhas" class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-24" aria-labelledby="carousel-title">
+        <div class="mb-6 flex items-end justify-between gap-3"><div><p class="eyebrow mb-2">DESTAQUES DA SEMANA</p><h2 id="carousel-title" class="section-title">Aprenda fazendo</h2></div><span class="text-xs tracking-widest text-muted">01 / 03</span></div>
+        <div id="carousel" class="relative overflow-hidden rounded-2xl shadow-2xl shadow-ink/10" aria-roledescription="carrossel" aria-label="Destaques de aprendizagem">
+          <div class="carousel-slide active bg-ink p-8 text-white sm:p-14" data-slide="0"><div class="max-w-2xl"><span class="slide-kicker">01 — FUNDAMENTOS</span><h3 class="slide-title">Componentes que<br /><em>fazem sentido.</em></h3><p class="max-w-xl leading-7 text-white/75">Organize a interface em blocos pequenos, reutilizáveis e fáceis de evoluir.</p><a class="mt-6 inline-flex rounded-lg bg-white px-4 py-3 text-sm font-bold text-ink hover:bg-coral hover:text-white" href="#cards">Ver conteúdo <span class="ml-3">→</span></a></div></div>
+          <div class="carousel-slide hidden bg-[#b95b49] p-8 text-white sm:p-14" data-slide="1"><div class="max-w-2xl"><span class="slide-kicker">02 — EXPERIÊNCIA</span><h3 class="slide-title">Design que<br /><em>orienta.</em></h3><p class="max-w-xl leading-7 text-white/75">Use hierarquia visual, feedback e acessibilidade para guiar cada decisão.</p><a class="mt-6 inline-flex rounded-lg bg-white px-4 py-3 text-sm font-bold text-ink hover:bg-ink hover:text-white" href="#agenda">Ver agenda <span class="ml-3">→</span></a></div></div>
+          <div class="carousel-slide hidden bg-[#887058] p-8 text-white sm:p-14" data-slide="2"><div class="max-w-2xl"><span class="slide-kicker">03 — ENTREGA</span><h3 class="slide-title">Prática que<br /><em>vira produto.</em></h3><p class="max-w-xl leading-7 text-white/75">Conecte aprendizado, protótipo e resultado em um fluxo simples e mensurável.</p><a class="mt-6 inline-flex rounded-lg bg-white px-4 py-3 text-sm font-bold text-ink hover:bg-ink hover:text-white" href="#contato">Começar agora <span class="ml-3">→</span></a></div></div>
+          <button id="prevSlide" type="button" class="carousel-arrow left-3" aria-label="Slide anterior">‹</button><button id="nextSlide" type="button" class="carousel-arrow right-3" aria-label="Próximo slide">›</button>
+          <div class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2" role="tablist" aria-label="Indicadores do carrossel"><button class="carousel-dot active" data-go-to="0" aria-label="Ir para o slide 1"></button><button class="carousel-dot" data-go-to="1" aria-label="Ir para o slide 2"></button><button class="carousel-dot" data-go-to="2" aria-label="Ir para o slide 3"></button></div>
+        </div>
+      </section>
+
+      <section id="cards" class="bg-paper-deep px-5 py-20 lg:px-8 lg:py-24" aria-labelledby="cards-title"><div class="mx-auto max-w-7xl"><p class="eyebrow mb-2">TRILHAS CURTAS</p><h2 id="cards-title" class="section-title mb-7">Escolha seu próximo passo</h2><div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <article class="learning-card"><span class="card-number bg-ink text-white">01</span><span class="card-tag">React</span><h3>Fundamentos de componentes</h3><p>Aprenda a dividir uma tela em partes claras, reutilizáveis e fáceis de testar.</p><a href="#contato" class="card-link">Começar trilha <span>↗</span></a></article>
+        <article class="learning-card"><span class="card-number bg-coral text-white">02</span><span class="card-tag">Interface</span><h3>Design responsivo</h3><p>Construa layouts que reorganizam conteúdo com naturalidade em qualquer tela.</p><a href="#contato" class="card-link">Começar trilha <span>↗</span></a></article>
+        <article class="learning-card"><span class="card-number bg-sand text-ink">03</span><span class="card-tag">Boas práticas</span><h3>Acessibilidade na prática</h3><p>Use semântica, foco visível e bons contrastes para incluir mais pessoas.</p><a href="#contato" class="card-link">Começar trilha <span>↗</span></a></article>
+      </div></div></section>
+
+      <section id="agenda" class="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-24" aria-labelledby="table-title"><div class="mb-6 flex items-end justify-between gap-3"><div><p class="eyebrow mb-2">AGENDA DE ESTUDOS</p><h2 id="table-title" class="section-title">Próximas sessões</h2></div><span class="text-xs tracking-widest text-muted">02 / 03</span></div><div class="overflow-x-auto rounded-2xl border border-ink/10"><table class="schedule-table min-w-[720px] w-full text-left text-sm"><caption class="sr-only">Lista de sessões de estudo e seus horários</caption><thead><tr><th>Tema</th><th>Categoria</th><th>Data</th><th>Duração</th><th>Status</th></tr></thead><tbody><tr><th>Componentes que comunicam</th><td>React</td><td>Hoje, 19h</td><td>45 min</td><td><span class="status-live">Disponível</span></td></tr><tr><th>Grid sem complicação</th><td>Interface</td><td>Amanhã, 18h</td><td>30 min</td><td><span>Agendada</span></td></tr><tr><th>HTML que acolhe</th><td>Acessibilidade</td><td>12 nov, 19h</td><td>40 min</td><td><span>Agendada</span></td></tr><tr><th>Feedback com propósito</th><td>Produto</td><td>14 nov, 18h</td><td>35 min</td><td><span>Agendada</span></td></tr><tr><th>Revisão do projeto</th><td>Prática</td><td>16 nov, 10h</td><td>60 min</td><td><span>Agendada</span></td></tr></tbody></table></div></section>
+
+      <section id="contato" class="bg-paper-deep px-5 py-20 lg:px-8 lg:py-24" aria-labelledby="form-title"><div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-5"><div class="lg:col-span-2"><p class="eyebrow mb-2">VAMOS CONVERSAR</p><h2 id="form-title" class="section-title">Monte uma trilha para o seu momento.</h2><p class="mt-4 max-w-md leading-7 text-muted">Preencha o formulário e receba uma sugestão de sequência para continuar evoluindo.</p></div><form id="contactForm" class="rounded-2xl border border-ink/10 bg-white/70 p-5 sm:p-8 lg:col-span-3" novalidate><div class="grid gap-4 sm:grid-cols-2"><div><label for="name" class="form-label">Nome completo</label><input id="name" name="name" type="text" autocomplete="name" required /><p class="invalid-message">Informe seu nome.</p></div><div><label for="email" class="form-label">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required /><p class="invalid-message">Informe um e-mail válido.</p></div><div class="sm:col-span-2"><label for="goal" class="form-label">Objetivo principal</label><select id="goal" name="goal" required><option value="" selected disabled>Selecione uma opção</option><option>Aprender React</option><option>Melhorar meu portfólio</option><option>Estudar acessibilidade</option></select><p class="invalid-message">Selecione um objetivo.</p></div><div class="sm:col-span-2"><label for="message" class="form-label">Mensagem</label><textarea id="message" name="message" rows="4" required placeholder="Conte um pouco sobre o que você quer construir."></textarea><p class="invalid-message">Escreva uma mensagem.</p></div><div class="flex flex-wrap items-center gap-4 sm:col-span-2"><button type="submit" class="rounded-lg bg-ink px-5 py-3 text-sm font-bold text-white transition hover:bg-coral">Enviar mensagem <span class="ml-3">↗</span></button><span id="formFeedback" class="text-sm font-semibold" role="status" aria-live="polite"></span></div></div></form></div></section>
+    </main>
+
+    <div id="learningModal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-ink/70 px-5" role="dialog" aria-modal="true" aria-labelledby="learningModalTitle">
+      <div class="w-full max-w-lg rounded-2xl bg-white p-6 text-ink shadow-2xl sm:p-8">
+        <div class="flex items-start justify-between gap-4"><h2 id="learningModalTitle" class="text-2xl font-bold tracking-tight">Sua próxima entrega começa aqui.</h2><button id="closeModal" type="button" class="text-2xl text-muted" aria-label="Fechar">×</button></div>
+        <p class="mt-4 leading-7 text-muted">A trilha combina fundamentos, prática e feedback para transformar uma ideia em uma interface clara e responsiva.</p>
+        <div class="mt-6 flex justify-end gap-3"><button id="cancelModal" type="button" class="rounded-lg border border-ink/15 px-4 py-3 text-sm font-bold">Fechar</button><button id="confirmModal" type="button" class="rounded-lg bg-ink px-4 py-3 text-sm font-bold text-white hover:bg-coral">Confirmar interesse</button></div>
+      </div>
+    </div>
+
+    <footer class="border-t border-ink/10"><div class="mx-auto flex max-w-7xl flex-col justify-between gap-3 px-5 py-6 text-sm text-muted md:flex-row lg:px-8"><div><span class="font-bold text-ink">SkillSprint</span><p class="mt-1">Uma experiência de estudo construída para transformar intenção em prática.</p></div><p>Atividade Tailwind 2026.2 · <span id="currentYear"></span></p></div></footer>
+    <button id="backToTop" type="button" class="fixed bottom-5 right-5 hidden h-11 w-11 rounded-full bg-ink text-xl text-white shadow-lg transition hover:bg-coral" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+    <script src="app.js"></script>
+  </body>
+</html>
